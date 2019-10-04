@@ -209,6 +209,7 @@ Options =
   searchEngines: TextOption
   searchUrl: NonEmptyTextOption
   userDefinedLinkHintCss: NonEmptyTextOption
+  darkMode: CheckBoxOption
 
 initOptionsPage = ->
   onUpdated = ->

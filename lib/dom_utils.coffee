@@ -433,6 +433,16 @@ DomUtils =
       style.textContent = Settings.get "userDefinedLinkHintCss"
       document.head.appendChild style
 
+  # Inject dark mode styles
+  injectDarkModeCss: ->
+    Settings.onLoaded ->
+      if Settings.get("darkMode") == true
+        darkModeLink = document.createElement "link"
+        darkModeLink.type = "text/css"
+        darkModeLink.rel = "stylesheet"
+        darkModeLink.href = "darkMode.css"
+        document.head.appendChild darkModeLink
+
 root = exports ? (window.root ?= {})
 root.DomUtils = DomUtils
 extend window, root unless exports?

@@ -1,0 +1,43 @@
+.vimiumReset, #vomnibar, #vomnibar input, #vomnibar .vomnibarSearchArea
+{
+  color:#D5D5D5;
+  border-color: #3D3D3D;
+}
+
+#vomnibar input
+{
+  background-color:#242424;
+  color:#D5D5D5;
+}
+
+#vomnibar .vomnibarSearchArea
+{
+  background-color: #333333;
+  border-bottom-color: #3D3D3D;
+}
+
+#vomnibar ul
+{
+  background-color:#242424;
+}
+
+#vomnibar li
+{
+  color:#D5D5D5;
+  border-bottom-color: #3D3D3D;
+}
+
+#vomnibar li .vomnibarSource
+{
+  color:#8A8A8A;
+}
+
+#vomnibar li .vomnibarUrl
+{
+  color:#5DB0D7;
+}
+
+#vomnibar li .vomnibarMatch, #vomnibar li em, #vomnibar li .vomnibarTitle, #vomnibar li .vomnibarTitle .vomnibarMatch
+{
+  color:#EAEAEA;
+}
