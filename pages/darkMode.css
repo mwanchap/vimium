@@ -45,6 +45,11 @@ span.vimiumHelpDialogKey
   color:#5DB0D7;
 }
 
+#vomnibar li.vomnibarSelected
+{
+  background-color: #454545;
+}
+
 #vomnibar li .vomnibarMatch, #vomnibar li em, #vomnibar li .vomnibarTitle, #vomnibar li .vomnibarTitle .vomnibarMatch
 {
   color:#EAEAEA;
