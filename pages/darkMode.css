@@ -1,0 +1,64 @@
+.vimiumReset, div.vimiumReset, span.vimiumReset, table.vimiumReset, a.vimiumReset, a:visited.vimiumReset, a:link.vimiumReset, a:hover.vimiumReset, td.vimiumReset, tr.vimiumReset, #vomnibar, #vomnibar input, #vomnibar .vomnibarSearchArea, #vomnibar input, div#vimiumHelpDialogContainer, span.vimiumHelpDialogKey
+{
+  color:#D5D5D5;
+}
+
+.vimiumReset, #vomnibar, #vomnibar input, #vomnibar .vomnibarSearchArea
+{
+  border-color: #3D3D3D;
+}
+
+#vomnibar input, div#vimiumhelpdialogcontainer
+{
+  background-color:#242424;
+}
+
+span.vimiumHelpDialogKey
+{
+  background-color: #454545;
+}
+
+#vomnibar .vomnibarSearchArea
+{
+  background-color: #333333;
+  border-bottom-color: #3D3D3D;
+}
+
+#vomnibar ul
+{
+  background-color:#242424;
+}
+
+#vomnibar li
+{
+  color:#D5D5D5;
+  border-bottom-color: #3D3D3D;
+}
+
+#vomnibar li .vomnibarSource
+{
+  color:#8A8A8A;
+}
+
+#vomnibar li .vomnibarUrl
+{
+  color:#5DB0D7;
+}
+
+#vomnibar li .vomnibarMatch, #vomnibar li em, #vomnibar li .vomnibarTitle, #vomnibar li .vomnibarTitle .vomnibarMatch
+{
+  color:#EAEAEA;
+}
+
+#vimiumTitle
+{
+  color:#D5D5D5;
+}
+
+/* for options page */
+
+#footer, input[type="text"], textarea
+{
+  background-color:#333333;
+  color:#D5D5D5;
+}

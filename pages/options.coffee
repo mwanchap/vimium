@@ -209,6 +209,7 @@ Options =
   searchEngines: TextOption
   searchUrl: NonEmptyTextOption
   userDefinedLinkHintCss: NonEmptyTextOption
+  darkMode: CheckBoxOption
 
 initOptionsPage = ->
   onUpdated = ->
@@ -346,6 +347,8 @@ initPopupPage = ->
 # Initialization.
 document.addEventListener "DOMContentLoaded", ->
   DomUtils.injectUserCss() # Manually inject custom user styles.
+  DomUtils.injectDarkModeCss()
+  DomUtils.injectBodyDarkModeCss() # Needed to override body element colors for options page only
   xhr = new XMLHttpRequest()
   xhr.open 'GET', chrome.extension.getURL('pages/exclusions.html'), true
   xhr.onreadystatechange = ->
