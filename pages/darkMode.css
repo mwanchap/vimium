@@ -57,12 +57,8 @@ span.vimiumHelpDialogKey
 
 /* for options page */
 
-#footer
+#footer, input[type="text"], textarea
 {
   background-color:#333333;
-}
-
-input[type="text"], textarea
-{
-  background-color: 
+  color:#D5D5D5;
 }
