@@ -133,6 +133,7 @@ UIComponentServer.registerHandler (event) ->
 
 document.addEventListener "DOMContentLoaded", ->
   DomUtils.injectUserCss() # Manually inject custom user styles.
+  DomUtils.injectDarkModeCss()
 
 root = exports ? window
 root.HelpDialog = HelpDialog

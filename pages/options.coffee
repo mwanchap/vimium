@@ -347,6 +347,7 @@ initPopupPage = ->
 # Initialization.
 document.addEventListener "DOMContentLoaded", ->
   DomUtils.injectUserCss() # Manually inject custom user styles.
+  DomUtils.injectDarkModeCss()
   xhr = new XMLHttpRequest()
   xhr.open 'GET', chrome.extension.getURL('pages/exclusions.html'), true
   xhr.onreadystatechange = ->
