@@ -443,7 +443,7 @@ DomUtils =
         darkModeLink.href = "darkMode.css"
         document.head.appendChild darkModeLink
 
-  # Inject styles to override body colors on the options page only
+  # Inject styles to override body colors on the options and blank pages only
   injectBodyDarkModeCss: ->
     Settings.onLoaded ->
       if Settings.get("darkMode") == true
