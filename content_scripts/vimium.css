@@ -163,6 +163,12 @@ div#vimiumHelpDialogContainer {
   overflow-x: auto;
 }
 
+div#vimiumHelpDialogContainer.darkMode {
+   filter: sepia(5%) invert(90%);
+   box-shadow: 0px 2px 10px white;
+}
+
+
 div#vimiumHelpDialog {
   min-width: 600px;
   padding:8px 12px;

@@ -31,6 +31,7 @@ Vomnibar =
     @vomnibarUI.setQuery options.query
     @vomnibarUI.setKeyword options.keyword
     @vomnibarUI.update true
+    DomUtils.maintainDarkMode @vomnibarUI.box
 
   hide: -> @vomnibarUI?.hide()
   onHidden: -> @vomnibarUI?.onHidden()
@@ -348,7 +349,6 @@ UIComponentServer.registerHandler (event) ->
 
 document.addEventListener "DOMContentLoaded", ->
   DomUtils.injectUserCss() # Manually inject custom user styles.
-  DomUtils.injectDarkModeCss()
 
 root = exports ? window
 root.Vomnibar = Vomnibar

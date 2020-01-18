@@ -19,6 +19,7 @@ HelpDialog =
   init: ->
     return if @dialogElement?
     @dialogElement = document.getElementById "vimiumHelpDialog"
+    @containerElement = document.getElementById "vimiumHelpDialogContainer"
 
     @dialogElement.getElementsByClassName("closeButton")[0].addEventListener("click", (clickEvent) =>
         clickEvent.preventDefault()
@@ -44,6 +45,7 @@ HelpDialog =
   show: ({showAllCommandDetails}) ->
     $("help-dialog-title").textContent = if showAllCommandDetails then "Command Listing" else "Help"
     $("help-dialog-version").textContent = Utils.getCurrentVersion()
+    DomUtils.maintainDarkMode @containerElement
 
     chrome.storage.local.get "helpPageData", ({helpPageData}) =>
       for own group, commands of helpPageData
@@ -133,7 +135,6 @@ UIComponentServer.registerHandler (event) ->
 
 document.addEventListener "DOMContentLoaded", ->
   DomUtils.injectUserCss() # Manually inject custom user styles.
-  DomUtils.injectDarkModeCss()
 
 root = exports ? window
 root.HelpDialog = HelpDialog

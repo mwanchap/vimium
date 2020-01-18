@@ -253,10 +253,16 @@ initOptionsPage = ->
     $("saveOptions").disabled = true
     $("saveOptions").textContent = "Saved"
 
+  toggleDarkMode = (event) ->
+    darkModeSetting = not bgSettings.get "darkMode"
+    bgSettings.set "darkMode", darkModeSetting
+    DomUtils.setDarkModeState darkModeSetting, document.body
+
   $("saveOptions").addEventListener "click", saveOptions
   $("advancedOptionsButton").addEventListener "click", toggleAdvancedOptions
   $("showCommands").addEventListener "click", activateHelpDialog
   $("filterLinkHints").addEventListener "click", maintainLinkHintsView
+  $("darkMode").addEventListener "click", toggleDarkMode
 
   for element in document.getElementsByClassName "nonEmptyTextOption"
     element.className = element.className + " example info"
@@ -274,6 +280,7 @@ initOptionsPage = ->
     new type(name,onUpdated)
 
   maintainLinkHintsView()
+  DomUtils.maintainDarkMode document.body
 
 initPopupPage = ->
   chrome.tabs.query { active: true, currentWindow: true }, ([tab]) ->
@@ -347,8 +354,6 @@ initPopupPage = ->
 # Initialization.
 document.addEventListener "DOMContentLoaded", ->
   DomUtils.injectUserCss() # Manually inject custom user styles.
-  DomUtils.injectDarkModeCss()
-  DomUtils.injectBodyDarkModeCss() # Needed to override body element colors for options page only
   xhr = new XMLHttpRequest()
   xhr.open 'GET', chrome.extension.getURL('pages/exclusions.html'), true
   xhr.onreadystatechange = ->

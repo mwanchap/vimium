@@ -433,24 +433,18 @@ DomUtils =
       style.textContent = Settings.get "userDefinedLinkHintCss"
       document.head.appendChild style
 
-  # Inject dark mode styles
-  injectDarkModeCss: ->
-    Settings.onLoaded ->
-      if Settings.get("darkMode") == true
-        darkModeLink = document.createElement "link"
-        darkModeLink.type = "text/css"
-        darkModeLink.rel = "stylesheet"
-        darkModeLink.href = "darkMode.css"
-        document.head.appendChild darkModeLink
-
-  # Inject styles to override body colors on the options and blank pages only
-  injectBodyDarkModeCss: ->
-    Settings.onLoaded ->
-      if Settings.get("darkMode") == true
-        darkModeStyle = document.createElement "style"
-        darkModeStyle.type = "text/css"
-        darkModeStyle.textContent = "body { background-color:#242424; color:#D5D5D5;}"
-        document.head.appendChild darkModeStyle
+  # Sets the dark mode state on/off for the specified element, used by options page
+  setDarkModeState: (darkModeState,element) ->
+    darkModeClassName = "darkMode"
+    if darkModeState
+      element.classList.add darkModeClassName
+    else
+      element.classList.remove darkModeClassName
+    
+  # Maintains correct dark mode state for the specified element (i.e. turns it on/off as per the setting)
+  maintainDarkMode: (element) ->
+    darkModeState = Settings.get "darkMode"
+    @setDarkModeState darkModeState, element
 
 root = exports ? (window.root ?= {})
 root.DomUtils = DomUtils
