@@ -63,6 +63,7 @@ handlers =
     document.getElementById("hud").innerText = data.text
     document.getElementById("hud").classList.add "vimiumUIComponentVisible"
     document.getElementById("hud").classList.remove "vimiumUIComponentHidden"
+    document.getElementById("hud").classList.remove "hud-find"
   hidden: ->
     # We get a flicker when the HUD later becomes visible again (with new text) unless we reset its contents
     # here.
@@ -72,7 +73,7 @@ handlers =
 
   showFindMode: (data) ->
     hud = document.getElementById "hud"
-    hud.innerText = "/\u200A" # \u200A is a "hair space", to leave enough space before the caret/first char.
+    hud.classList.add "hud-find"
 
     inputElement = document.createElement "span"
     try # NOTE(mrmr1993): Chrome supports non-standard "plaintext-only", which is what we *really* want.
@@ -91,7 +92,10 @@ handlers =
     countElement.id = "hud-match-count"
     countElement.style.float = "right"
     hud.appendChild countElement
-    Utils.setTimeout TIME_TO_WAIT_FOR_IPC_MESSAGES, -> inputElement.focus()
+    Utils.setTimeout TIME_TO_WAIT_FOR_IPC_MESSAGES, ->
+      # On Firefox, the page must first be focused before the HUD input element can be focused. #3460.
+      window.focus() if Utils.isFirefox()
+      inputElement.focus()
 
     findMode =
       historyIndex: -1

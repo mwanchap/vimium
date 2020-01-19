@@ -5,7 +5,6 @@
 HUD =
   tween: null
   hudUI: null
-  _displayElement: null
   findMode: null
   abandon: -> @hudUI?.hide false
 
@@ -112,7 +111,11 @@ HUD =
     @pasteListener data
 
   unfocusIfFocused: ->
-    document.activeElement.blur() if document.activeElement == @hudUI?.iframeElement
+    # On Firefox, if an <iframe> disappears when it's focused, then it will keep "focused",
+    # which means keyboard events will always be dispatched to the HUD iframe
+    if @hudUI?.showing
+      @hudUI.iframeElement.blur()
+      window.focus()
 
 class Tween
   opacity: 0
