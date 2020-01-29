@@ -435,7 +435,6 @@ DomUtils =
       style.textContent = Settings.get "userDefinedLinkHintCss"
       document.head.appendChild style
 
-<<<<<<< HEAD
   # Sets the dark mode state on/off for the specified element, used by options page
   setDarkModeState: (darkModeState,element) ->
     darkModeClassName = "darkMode"
@@ -446,9 +445,10 @@ DomUtils =
     
   # Maintains correct dark mode state for the specified element (i.e. turns it on/off as per the setting)
   maintainDarkMode: (element) ->
-    darkModeState = Settings.get "darkMode"
-    @setDarkModeState darkModeState, element
-=======
+    Settings.onLoaded ->
+      darkModeState = Settings.get "darkMode"
+      @setDarkModeState darkModeState, element
+  
   # Inject user Javascript.
   injectUserScript: (text) ->
     if text[...11] == "javascript:"
@@ -458,7 +458,6 @@ DomUtils =
     script = document.createElement "script"
     script.textContent = text
     document.head.appendChild script
->>>>>>> 9b4b2610e0ce4a227f74992822cb38fc26617f10
 
 root = exports ? (window.root ?= {})
 root.DomUtils = DomUtils
