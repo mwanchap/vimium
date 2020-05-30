@@ -460,4 +460,47 @@ iframe.vimiumUIComponentReactivated {
     background-color: #202124;
     border-color: rgba(255, 255, 255, 0.1);
   }
+
+  /* Dark Mode CSS for Help Dialog */
+
+  div#vimiumHelpDialogContainer {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: #202124;
+  }
+
+  div#vimiumHelpDialog {
+    background-color: #292a2d;
+    color: white;
+  }
+
+  div#vimiumHelpDialog td.vimiumReset {
+    color: #c9cccf;
+  }
+
+  span#vimiumTitle,
+  div#vimiumHelpDialog td.vimiumHelpSectionTitle,
+  div#vimiumHelpDialog span.vimiumReset,
+  div#vimiumHelpDialog div.vimiumReset {
+    color: white;
+  }
+
+  #vimiumTitle > span.vimiumReset {
+    color: #8ab4f8 !important;
+  }
+
+  div#vimiumHelpDialog a,
+  div#vimiumHelpDialog a.vimiumReset {
+    color: #8ab4f8;
+  }
+
+  div#vimiumHelpDialog div.vimiumDivider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  span.vimiumHelpDialogKey {
+    background-color: #1d1d1f;
+    border: solid 1px black;
+    box-shadow: none;
+    color: white;
+  }
 }
