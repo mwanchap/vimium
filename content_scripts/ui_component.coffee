@@ -16,6 +16,23 @@ class UIComponent
         # https://github.com/philc/vimium/pull/3277#issuecomment-487363284
         getComputedStyle(@iframeElement).display
 
+  handleDarkReaderFilterModes: ->
+    # Reverses Dark Reader's invert filter on Vimium's UI elements
+    reverseClass = "reverseDarkReaderFilter"
+
+    addOrRemoveReverseClass = ((mutations) ->
+      if (document.getElementById "dark-reader-style")?
+        unless @iframeElement.classList.contains reverseClass
+          @iframeElement.classList.add reverseClass
+      else
+        @iframeElement.classList.remove reverseClass
+    ).bind(this)
+
+    addOrRemoveReverseClass()
+
+    observer = new MutationObserver addOrRemoveReverseClass 
+    observer.observe(document.head, { childList: true });
+
   constructor: (iframeUrl, className, @handleMessage) ->
     DomUtils.documentReady =>
       styleSheet = DomUtils.createElement "style"
@@ -37,6 +54,7 @@ class UIComponent
         shadowWrapper.createShadowRoot?() ? shadowWrapper
       @shadowDOM.appendChild styleSheet
       @shadowDOM.appendChild @iframeElement
+      @handleDarkReaderFilterModes()
       @toggleIframeElementClasses "vimiumUIComponentVisible", "vimiumUIComponentHidden"
 
       # Open a port and pass it to the iframe via window.postMessage.  We use an AsyncDataFetcher to handle
