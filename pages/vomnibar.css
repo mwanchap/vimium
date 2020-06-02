@@ -158,7 +158,7 @@
     border-radius: 6px;
   }
 
-  #vomnibar .vomnibarSearchArea {
+  #vomnibar .vomnibarSearchArea, #vomnibar {
     background-color: #35363a;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -169,7 +169,7 @@
     border: none;
   }
 
-  #vomnibar ul {
+  #vomnibar ul { 
     background-color: #202124;
   }
 

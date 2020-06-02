@@ -435,9 +435,15 @@ iframe.vimiumNonClickable {
   pointer-events: none;
 }
 
-/* Dark mode CSS for options page and exclusions */
-
 @media (prefers-color-scheme: dark) {
+  /* This cancels out the filter on <html>, applied by Dark Reader's Filter and Filter+ modes */
+  iframe.reverseDarkReaderFilter {
+    -webkit-filter: invert(100%) hue-rotate(180deg) !important;
+    filter: invert(100%) hue-rotate(180deg) !important;
+  }
+
+  /* Dark mode CSS for options page and exclusions */
+
   body.vimiumBody {
     background-color: #292a2d;
     color: white;
